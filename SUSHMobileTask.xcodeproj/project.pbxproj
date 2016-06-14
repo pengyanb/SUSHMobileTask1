@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		B8EBB6861D0FEE58008C22B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBB6851D0FEE58008C22B4 /* AppDelegate.swift */; };
-		B8EBB6881D0FEE58008C22B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBB6871D0FEE58008C22B4 /* ViewController.swift */; };
 		B8EBB68B1D0FEE58008C22B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EBB6891D0FEE58008C22B4 /* Main.storyboard */; };
 		B8EBB68D1D0FEE58008C22B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8EBB68C1D0FEE58008C22B4 /* Assets.xcassets */; };
 		B8EBB6901D0FEE58008C22B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EBB68E1D0FEE58008C22B4 /* LaunchScreen.storyboard */; };
 		B8EBB69B1D0FEE58008C22B4 /* SUSHMobileTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBB69A1D0FEE58008C22B4 /* SUSHMobileTaskTests.swift */; };
 		B8EBB6A61D0FEE58008C22B4 /* SUSHMobileTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBB6A51D0FEE58008C22B4 /* SUSHMobileTaskUITests.swift */; };
+		B8EBB6B81D0FEF51008C22B4 /* JsonDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBB6B71D0FEF51008C22B4 /* JsonDataTableViewController.swift */; };
+		B8EBB6BA1D0FF247008C22B4 /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBB6B91D0FF247008C22B4 /* PersonData.swift */; };
+		B8EBB6BD1D0FF8F2008C22B4 /* PersonDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EBB6BC1D0FF8F2008C22B4 /* PersonDataTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,6 @@
 /* Begin PBXFileReference section */
 		B8EBB6821D0FEE58008C22B4 /* SUSHMobileTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SUSHMobileTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EBB6851D0FEE58008C22B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B8EBB6871D0FEE58008C22B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B8EBB68A1D0FEE58008C22B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B8EBB68C1D0FEE58008C22B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8EBB68F1D0FEE58008C22B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,9 @@
 		B8EBB6A11D0FEE58008C22B4 /* SUSHMobileTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SUSHMobileTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EBB6A51D0FEE58008C22B4 /* SUSHMobileTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUSHMobileTaskUITests.swift; sourceTree = "<group>"; };
 		B8EBB6A71D0FEE58008C22B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8EBB6B71D0FEF51008C22B4 /* JsonDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonDataTableViewController.swift; sourceTree = "<group>"; };
+		B8EBB6B91D0FF247008C22B4 /* PersonData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonData.swift; sourceTree = "<group>"; };
+		B8EBB6BC1D0FF8F2008C22B4 /* PersonDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDataTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +101,12 @@
 		B8EBB6841D0FEE58008C22B4 /* SUSHMobileTask */ = {
 			isa = PBXGroup;
 			children = (
-				B8EBB6851D0FEE58008C22B4 /* AppDelegate.swift */,
-				B8EBB6871D0FEE58008C22B4 /* ViewController.swift */,
+				B8EBB6BB1D0FF24C008C22B4 /* Class */,
+				B8EBB6B61D0FEED4008C22B4 /* Controllers */,
+				B8EBB6B51D0FEEC9008C22B4 /* Views */,
+				B8EBB6B41D0FEEBF008C22B4 /* Model */,
+				B8EBB6B31D0FEEB4008C22B4 /* Supporting Files */,
 				B8EBB6891D0FEE58008C22B4 /* Main.storyboard */,
-				B8EBB68C1D0FEE58008C22B4 /* Assets.xcassets */,
-				B8EBB68E1D0FEE58008C22B4 /* LaunchScreen.storyboard */,
-				B8EBB6911D0FEE58008C22B4 /* Info.plist */,
 			);
 			path = SUSHMobileTask;
 			sourceTree = "<group>";
@@ -123,6 +127,48 @@
 				B8EBB6A71D0FEE58008C22B4 /* Info.plist */,
 			);
 			path = SUSHMobileTaskUITests;
+			sourceTree = "<group>";
+		};
+		B8EBB6B31D0FEEB4008C22B4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBB68C1D0FEE58008C22B4 /* Assets.xcassets */,
+				B8EBB68E1D0FEE58008C22B4 /* LaunchScreen.storyboard */,
+				B8EBB6911D0FEE58008C22B4 /* Info.plist */,
+				B8EBB6851D0FEE58008C22B4 /* AppDelegate.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8EBB6B41D0FEEBF008C22B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B8EBB6B51D0FEEC9008C22B4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBB6BC1D0FF8F2008C22B4 /* PersonDataTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B8EBB6B61D0FEED4008C22B4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBB6B71D0FEF51008C22B4 /* JsonDataTableViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B8EBB6BB1D0FF24C008C22B4 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				B8EBB6B91D0FF247008C22B4 /* PersonData.swift */,
+			);
+			name = Class;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +239,7 @@
 				TargetAttributes = {
 					B8EBB6811D0FEE58008C22B4 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = FX3X9EUZ62;
 					};
 					B8EBB6951D0FEE58008C22B4 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -256,8 +303,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8EBB6881D0FEE58008C22B4 /* ViewController.swift in Sources */,
+				B8EBB6BD1D0FF8F2008C22B4 /* PersonDataTableViewCell.swift in Sources */,
 				B8EBB6861D0FEE58008C22B4 /* AppDelegate.swift in Sources */,
+				B8EBB6B81D0FEF51008C22B4 /* JsonDataTableViewController.swift in Sources */,
+				B8EBB6BA1D0FF247008C22B4 /* PersonData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,7 +450,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SUSHMobileTask/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pengyanb.SUSHMobileTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -412,7 +463,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SUSHMobileTask/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pengyanb.SUSHMobileTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
