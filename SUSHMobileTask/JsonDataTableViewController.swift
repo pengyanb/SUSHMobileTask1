@@ -15,6 +15,7 @@ class JsonDataTableViewController: UITableViewController, NSURLSessionDelegate {
     
     var personDataArray : [PersonData] = [PersonData]()
     
+    // MARK : - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -66,7 +67,9 @@ class JsonDataTableViewController: UITableViewController, NSURLSessionDelegate {
                             self?.personDataArray.append(personData)
                         }
                         print("[persion Array]: \(self?.personDataArray.count)")
-                        self?.tableView.reloadData()
+                        dispatch_async(dispatch_get_main_queue(), { [weak self] in
+                            self?.tableView.reloadData()
+                        })
                     }
                     
                 }
@@ -76,7 +79,7 @@ class JsonDataTableViewController: UITableViewController, NSURLSessionDelegate {
             }).resume()
         }
     }
-
+    //this function process the Date String from the JSON Date and return a NSDate value for later use
     private func processDateString(dateString:String)->NSDate?{
         let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         let dateStringSplit = dateString.componentsSeparatedByString(",")
@@ -108,24 +111,26 @@ class JsonDataTableViewController: UITableViewController, NSURLSessionDelegate {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("personDataCell", forIndexPath: indexPath)
-        print("tablview cellForRowAtIndex")
+        
+        //check is cell is kind of class PersonDataTableViewCell
         if let personDataCell = cell as? PersonDataTableViewCell{
-            print("is PersonDataTableViewCell")
-            let rowIndex = indexPath.row
+            
+            let rowIndex = indexPath.row    //save the row index. When async function returns, use this value to determine if fetched data still apply to this cell
             personDataCell.currentRowIndex = rowIndex
-            let personData = personDataArray[indexPath.row]
-            if let name = personData.name{
-                print("\(name)")
+            let personData = personDataArray[indexPath.row]  // get the Person Data
+            if let name = personData.name{  //assign person name
+                //print("\(name)")
                 personDataCell.nameLabel.text = name
             }
-            if let title = personData.title{
+            if let title = personData.title{ //assign person title
                 personDataCell.titleLabel.text = title
             }
             if let imageURLString = personData.image{
                 if let imageURL = NSURL(string: imageURLString){
+                    //create a request with a specific CachePolicy to cache Data
                     let request = NSURLRequest(URL: imageURL, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad , timeoutInterval: 5000)
-                    let cachedURLResponse = NSURLCache.sharedURLCache().cachedResponseForRequest(request)
-                    if cachedURLResponse == nil{
+                    let cachedURLResponse = NSURLCache.sharedURLCache().cachedResponseForRequest(request) //try get cached response
+                    if cachedURLResponse == nil{    //if not cached response so far, retrieve the image and cache the data
                         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
                         config.URLCache = NSURLCache.sharedURLCache()
                         config.URLCache = NSURLCache(memoryCapacity: 512000, diskCapacity: 10000, diskPath: "urlCache")
@@ -135,15 +140,18 @@ class JsonDataTableViewController: UITableViewController, NSURLSessionDelegate {
                                 print("\(error)")
                                 return
                             }
-                            if rowIndex == personDataCell.currentRowIndex{ //check if the cell is already been reused
-                                let img = UIImage(data: data!)
-                                personDataCell.imgView.image = img
-                            }
+                            let img = UIImage(data: data!)
+                            
+                            dispatch_async(dispatch_get_main_queue(), { //dispatch to UI thread
+                                if rowIndex == personDataCell.currentRowIndex{ //check if the cell is already been reused
+                                    personDataCell.imgView.image = img
+                                }
+                            })
                             let cacheResponse = NSCachedURLResponse(response: response!, data: data!)
                             NSURLCache.sharedURLCache().storeCachedResponse(cacheResponse, forRequest: request)
                         }).resume()
                     }
-                    else{
+                    else{                   //else cached image exists, then display it
                         if rowIndex == personDataCell.currentRowIndex{  //check if the cell is already been reused
                             let img = UIImage(data: cachedURLResponse!.data)
                             personDataCell.imgView.image = img
